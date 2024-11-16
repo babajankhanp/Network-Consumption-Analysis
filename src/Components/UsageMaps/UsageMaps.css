@@ -1,0 +1,102 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 24px;
+}
+
+.title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 16px;
+}
+
+.controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.view-controls,
+.map-style-controls {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+
+    gap: 12px;
+}
+
+.view-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border-radius: 8px;
+    background: #f3f4f6;
+    color: #4b5563;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.view-button:hover {
+    background: #e5e7eb;
+}
+
+.view-button.active {
+    background: #2563eb;
+    color: white;
+    transform: scale(1.05);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.map-container {
+    height: 70vh;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.leaflet-map {
+    height: 100%;
+    width: 100%;
+}
+
+.dot-view {
+    position: relative;
+    height: 70vh;
+    background: #fff;
+    border: 1px solid #ddd;
+}
+
+.dot {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    transition: transform 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+.dot:hover {
+    transform: scale(1.2);
+}
+
+.popup h3 {
+    font-size: 16px;
+    margin: 0 0 8px;
+}
+
+.popup p {
+    margin: 0;
+    font-size: 14px;
+}
+.leaflet-interactive {
+    cursor: pointer;
+}
