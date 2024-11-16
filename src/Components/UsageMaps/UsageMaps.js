@@ -9,7 +9,7 @@ import { initialData, citiesList, usageOptions } from "../utils/staticData";
 
 const mapStyles = {
 	default: {
-		url: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+		url: `https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png`,
 		attribution:
 			'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
 	},
@@ -19,9 +19,9 @@ const mapStyles = {
 			"Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community",
 	},
 	dark: {
-		url: "https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png",
+		url: `https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png?api_key=${process.env.REACT_APP_STADIA_API_KEY || ""}`,
 		attribution:
-			'&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors',
+			'&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a>, &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors',
 	},
 };
 
