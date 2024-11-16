@@ -75,132 +75,129 @@ const UsageMaps = () => {
 	};
 
 	return (
-		<>
-			<div className="app">
-				<div className="container">
-					<div className="card">
-						<h1 className="title">Network Usage Map</h1>
-						<div className="controls">
-							<div className="map-style-controls">
-								<ViewButton
-									icon={MapIcon}
-									label="Standard"
-									active={mapStyle === "default"}
-									onClick={() => setMapStyle("default")}
-								/>
-								<ViewButton
-									icon={Globe2}
-									label="Satellite"
-									active={mapStyle === "satellite"}
-									onClick={() => setMapStyle("satellite")}
-								/>
-								<ViewButton
-									icon={Layers}
-									label="Dark"
-									active={mapStyle === "dark"}
-									onClick={() => setMapStyle("dark")}
-								/>
-							</div>
-							<button
-								onClick={() => setShowCityForm(!showCityForm)}
-								className="add-city-button"
-							>
-								{showCityForm ? "Cancel" : "Add City"}
-							</button>
+		<div className="app">
+			<div className="container">
+				<div className="card">
+					<h1 className="title">Network Usage Map</h1>
+					<div className="controls">
+						<div className="map-style-controls">
+							<ViewButton
+								icon={MapIcon}
+								label="Standard"
+								active={mapStyle === "default"}
+								onClick={() => setMapStyle("default")}
+							/>
+							<ViewButton
+								icon={Globe2}
+								label="Satellite"
+								active={mapStyle === "satellite"}
+								onClick={() => setMapStyle("satellite")}
+							/>
+							<ViewButton
+								icon={Layers}
+								label="Dark"
+								active={mapStyle === "dark"}
+								onClick={() => setMapStyle("dark")}
+							/>
 						</div>
-
-						{showCityForm && (
-							<div className={`city-form ${showCityForm ? "show" : ""}`}>
-								<h3>Add a New City</h3>
-								<div className="add-form-items">
-									<select
-										value={newCity.region}
-										onChange={(e) =>
-											setNewCity({ ...newCity, region: e.target.value })
-										}
-									>
-										<option value="">Select a City</option>
-										{citiesList.map((city) => (
-											<option key={city.id} value={city.region}>
-												{city.region}
-											</option>
-										))}
-									</select>
-									<select
-										value={newCity.network}
-										onChange={(e) =>
-											setNewCity({ ...newCity, network: e.target.value })
-										}
-									>
-										<option value="">Select Network</option>
-										<option value="5G">5G</option>
-										<option value="4G">4G</option>
-									</select>
-									<select
-										value={newCity.usage}
-										onChange={(e) =>
-											setNewCity({ ...newCity, usage: e.target.value })
-										}
-									>
-										<option value="">Select Usage</option>
-										{usageOptions.map((usageValue) => (
-											<option key={usageValue.value} value=
-                                                {usageValue.value}>
-												{usageValue.label}
-											</option>
-										))}
-									</select>
-									<button onClick={handleAddCity}>Add City</button>
-								</div>
-							</div>
-						)}
-
-						<div className="map-container">
-							<MapContainer
-								center={[20.5937, 78.9629]}
-								zoom={3}
-								className="leaflet-map"
-								scrollWheelZoom={true}
-							>
-								<TileLayer
-									url={mapStyles[mapStyle].url}
-									attribution={mapStyles[mapStyle].attribution}
-								/>
-								{cities.map((region) => (
-									<CircleMarker
-										key={region.id}
-										center={region.coordinates}
-										radius={getMarkerRadius(region.usage)}
-										pathOptions={{
-											color: getColor(region.usage),
-											fillColor: getColor(region.usage),
-											fillOpacity: 0.8,
-											cursor: "pointer",
-										}}
-										eventHandlers={{
-											click: (e) => {
-												e.target.openPopup();
-											},
-										}}
-										interactive={true}
-									>
-										<Popup>
-											<div className="popup">
-												<h3>{region.region}</h3>
-												<p>Network: {region.network}</p>
-												<p>Usage: {region.usage}</p>
-											</div>
-										</Popup>
-									</CircleMarker>
-								))}
-							</MapContainer>
-						</div>
-
-						<UsageScale />
+						<button
+							onClick={() => setShowCityForm(!showCityForm)}
+							className="add-city-button"
+						>
+							{showCityForm ? "Cancel" : "Add City"}
+						</button>
 					</div>
+
+					{showCityForm && (
+						<div className={`city-form ${showCityForm ? "show" : ""}`}>
+							<h3>Add a New City</h3>
+							<div className="add-form-items">
+								<select
+									value={newCity.region}
+									onChange={(e) =>
+										setNewCity({ ...newCity, region: e.target.value })
+									}
+								>
+									<option value="">Select a City</option>
+									{citiesList.map((city) => (
+										<option key={city.id} value={city.region}>
+											{city.region}
+										</option>
+									))}
+								</select>
+								<select
+									value={newCity.network}
+									onChange={(e) =>
+										setNewCity({ ...newCity, network: e.target.value })
+									}
+								>
+									<option value="">Select Network</option>
+									<option value="5G">5G</option>
+									<option value="4G">4G</option>
+								</select>
+								<select
+									value={newCity.usage}
+									onChange={(e) =>
+										setNewCity({ ...newCity, usage: e.target.value })
+									}
+								>
+									<option value="">Select Usage</option>
+									{usageOptions.map((usageValue) => (
+										<option key={usageValue.value} value={usageValue.value}>
+											{usageValue.label}
+										</option>
+									))}
+								</select>
+								<button onClick={handleAddCity}>Add City</button>
+							</div>
+						</div>
+					)}
+
+					<div className="map-container">
+						<MapContainer
+							center={[20.5937, 78.9629]}
+							zoom={3}
+							className="leaflet-map"
+							scrollWheelZoom={true}
+						>
+							<TileLayer
+								url={mapStyles[mapStyle].url}
+								attribution={mapStyles[mapStyle].attribution}
+							/>
+							{cities.map((region) => (
+								<CircleMarker
+									key={region.id}
+									center={region.coordinates}
+									radius={getMarkerRadius(region.usage)}
+									pathOptions={{
+										color: getColor(region.usage),
+										fillColor: getColor(region.usage),
+										fillOpacity: 0.8,
+										cursor: "pointer",
+									}}
+									eventHandlers={{
+										click: (e) => {
+											e.target.openPopup();
+										},
+									}}
+									interactive={true}
+								>
+									<Popup>
+										<div className="popup">
+											<h3>{region.region}</h3>
+											<p>Network: {region.network}</p>
+											<p>Usage: {region.usage}</p>
+										</div>
+									</Popup>
+								</CircleMarker>
+							))}
+						</MapContainer>
+					</div>
+
+					<UsageScale />
 				</div>
 			</div>
-		</>
+		</div>
 	);
 };
 
