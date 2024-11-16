@@ -153,7 +153,7 @@ const UsageMaps = () => {
 						</div>
 					)}
 
-					<div className="map-container">
+					<div className={`map-container ${showCityForm ? "shifted" : ""}`}>
 						<MapContainer
 							center={[20.5937, 78.9629]}
 							zoom={3}
