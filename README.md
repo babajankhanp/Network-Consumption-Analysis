@@ -1,15 +1,11 @@
-# Getting Started with Create React App
+### Problem Statement
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Create an interactive map for users in ReactJS, which should show below:
+Network available in regions
+Data Usage as per the region - represent as per the color
+On click: display the usage details
 
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Similar to the picture below:
 
 ### **High-Level Design (HLD) for `Network Usage Maps` Component**
 
