@@ -76,12 +76,11 @@
     width: 100%;
     transform: translateY(0);
     border-radius: 10px;
-    /* margin-top: 50px; */
+    margin-top: 50px;
 }
 
 .map-container.shifted {
     /* animation: slideInBottom 0.8s ease-in-out; */
-    margin-top: 200px;
 
     @media (max-width:768px){
         margin-top: 50px;
@@ -149,21 +148,32 @@
 
 /* City form styling */
 .city-form {
-    position: absolute;
-    top: 150px;
-    left: 500px;
     background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     padding: 20px;
     opacity: 0;
-    transform: translateX(-100%);
     animation: none;
     border: 1px solid black;
+    width: 90%;
+    max-width: 600px;
+    z-index: 1000;
+    margin: 0 auto;
+}
+
+.city-form {
+    max-height: 90vh;
+    overflow-y: auto;
+    margin-top: 2rem;
 }
 
 .city-form.show {
     animation: slideInLeft 0.8s ease forwards;
+    width: 100%;
 }
 
 .city-form h3 {
@@ -210,9 +220,12 @@
 
 .add-form-items {
     display: flex;
+    flex-wrap: wrap;
+    /* Allow wrapping */
     justify-content: center;
     align-items: center;
-    gap: 2rem;
+    gap: 1rem;
+    width: 100%;
 }
 
 /* Animations */
@@ -257,6 +270,7 @@
     .city-form {
         top: 20px;
         left: 0px;
+        padding: 10px 0px;
         position: relative;
         animation: slideInLeft 0.8s ease forwards;
     }
@@ -264,6 +278,7 @@
     .add-form-items {
         flex-direction: column;
         gap: 1rem;
+        width: 90%;
     }
 
     .view-controls,

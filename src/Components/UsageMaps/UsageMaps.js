@@ -109,6 +109,7 @@ const UsageMaps = () => {
 					</div>
 
 					{showCityForm && (
+						<div>
 						<div className={`city-form ${showCityForm ? "show" : ""}`}>
 							<h3>Add a New City</h3>
 							<div className="add-form-items">
@@ -150,6 +151,7 @@ const UsageMaps = () => {
 								</select>
 								<button onClick={handleAddCity}>Add City</button>
 							</div>
+						</div>
 						</div>
 					)}
 
