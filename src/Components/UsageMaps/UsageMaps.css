@@ -273,6 +273,10 @@
         gap: 8px;
     }
 
+ .view-button:nth-last-child(1) {
+            width: 96%;
+}
+
     .map-container {
         height: 400px;
     }
